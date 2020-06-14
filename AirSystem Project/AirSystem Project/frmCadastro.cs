@@ -109,5 +109,10 @@ namespace AirSystem_Project
                                  MessageBoxIcon.Information);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fotoPictureBox.Image = null;
+        }
     }
 }

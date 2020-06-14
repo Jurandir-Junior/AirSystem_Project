@@ -118,6 +118,21 @@ namespace AirSystem_Project
                     carregaLista();
                 }
             }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Arquivos de Imagens(*.jpg;*.png)|*.jpg;*.png";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                fotoPictureBox.Image = Image.FromFile(ofd.FileName);
+            }
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+                fotoPictureBox.Image = null;
         }
     }
+}
 

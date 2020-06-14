@@ -30,7 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
@@ -56,18 +62,12 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txbFiltro = new System.Windows.Forms.TextBox();
             this.lblContador = new System.Windows.Forms.Label();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sobrenomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,13 +93,56 @@
             this.dgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsuarios_CellClick);
             this.dgvListaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsuarios_CellContentClick);
             // 
-            // pictureBox1
+            // Endereco
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(498, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(193, 155);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Endereco.DataPropertyName = "Endereco";
+            this.Endereco.HeaderText = "Endereco";
+            this.Endereco.Name = "Endereco";
+            this.Endereco.Visible = false;
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "Nascimento";
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            this.Nascimento.Visible = false;
+            // 
+            // Numero
+            // 
+            this.Numero.DataPropertyName = "Numero";
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.Visible = false;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.Visible = false;
+            // 
+            // Senha
+            // 
+            this.Senha.DataPropertyName = "Senha";
+            this.Senha.HeaderText = "Senha";
+            this.Senha.Name = "Senha";
+            this.Senha.Visible = false;
+            // 
+            // Admin
+            // 
+            this.Admin.DataPropertyName = "Admin";
+            this.Admin.HeaderText = "Admin";
+            this.Admin.Name = "Admin";
+            this.Admin.Visible = false;
+            // 
+            // fotoPictureBox
+            // 
+            this.fotoPictureBox.Location = new System.Drawing.Point(498, 12);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(193, 155);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoPictureBox.TabIndex = 1;
+            this.fotoPictureBox.TabStop = false;
             // 
             // btnAlterar
             // 
@@ -110,6 +153,7 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnDeletar
             // 
@@ -120,6 +164,7 @@
             this.btnDeletar.TabIndex = 3;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // lblNome
             // 
@@ -338,48 +383,6 @@
             this.lblContador.TabIndex = 27;
             this.lblContador.Text = "label1";
             // 
-            // Endereco
-            // 
-            this.Endereco.DataPropertyName = "Endereco";
-            this.Endereco.HeaderText = "Endereco";
-            this.Endereco.Name = "Endereco";
-            this.Endereco.Visible = false;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.DataPropertyName = "Nascimento";
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            this.Nascimento.Visible = false;
-            // 
-            // Numero
-            // 
-            this.Numero.DataPropertyName = "Numero";
-            this.Numero.HeaderText = "Numero";
-            this.Numero.Name = "Numero";
-            this.Numero.Visible = false;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            this.Username.Visible = false;
-            // 
-            // Senha
-            // 
-            this.Senha.DataPropertyName = "Senha";
-            this.Senha.HeaderText = "Senha";
-            this.Senha.Name = "Senha";
-            this.Senha.Visible = false;
-            // 
-            // Admin
-            // 
-            this.Admin.DataPropertyName = "Admin";
-            this.Admin.HeaderText = "Admin";
-            this.Admin.Name = "Admin";
-            this.Admin.Visible = false;
-            // 
             // codigoDataGridViewTextBoxColumn
             // 
             this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
@@ -433,13 +436,13 @@
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(this.dgvListaUsuarios);
             this.Name = "frmListaUsuarios";
             this.Text = "frmListaUsuarios";
             this.Load += new System.EventHandler(this.frmListaUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -449,7 +452,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListaUsuarios;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox fotoPictureBox;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Label lblNome;
