@@ -30,12 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sobrenomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fotoPictureBox = new System.Windows.Forms.PictureBox();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
@@ -62,13 +66,9 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txbFiltro = new System.Windows.Forms.TextBox();
             this.lblContador = new System.Windows.Forms.Label();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sobrenomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvListaUsuarios
@@ -92,6 +92,25 @@
             this.dgvListaUsuarios.TabIndex = 0;
             this.dgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsuarios_CellClick);
             this.dgvListaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUsuarios_CellContentClick);
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // sobrenomeDataGridViewTextBoxColumn
+            // 
+            this.sobrenomeDataGridViewTextBoxColumn.DataPropertyName = "Sobrenome";
+            this.sobrenomeDataGridViewTextBoxColumn.HeaderText = "Sobrenome";
+            this.sobrenomeDataGridViewTextBoxColumn.Name = "sobrenomeDataGridViewTextBoxColumn";
+            this.sobrenomeDataGridViewTextBoxColumn.Width = 170;
             // 
             // Endereco
             // 
@@ -134,6 +153,10 @@
             this.Admin.HeaderText = "Admin";
             this.Admin.Name = "Admin";
             this.Admin.Visible = false;
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(AirSystem_Project.Models.Usuario);
             // 
             // fotoPictureBox
             // 
@@ -200,7 +223,7 @@
             // 
             this.lblNascimento.AutoSize = true;
             this.lblNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNascimento.Location = new System.Drawing.Point(437, 330);
+            this.lblNascimento.Location = new System.Drawing.Point(437, 363);
             this.lblNascimento.Name = "lblNascimento";
             this.lblNascimento.Size = new System.Drawing.Size(93, 20);
             this.lblNascimento.TabIndex = 7;
@@ -210,7 +233,7 @@
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(437, 363);
+            this.lblNumero.Location = new System.Drawing.Point(437, 330);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(65, 20);
             this.lblNumero.TabIndex = 8;
@@ -281,7 +304,7 @@
             // tbxNumero
             // 
             this.tbxNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxNumero.Location = new System.Drawing.Point(583, 363);
+            this.tbxNumero.Location = new System.Drawing.Point(583, 329);
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(169, 23);
             this.tbxNumero.TabIndex = 16;
@@ -306,7 +329,7 @@
             // 
             this.dtpNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNascimento.Location = new System.Drawing.Point(583, 329);
+            this.dtpNascimento.Location = new System.Drawing.Point(583, 363);
             this.dtpNascimento.Name = "dtpNascimento";
             this.dtpNascimento.Size = new System.Drawing.Size(169, 23);
             this.dtpNascimento.TabIndex = 20;
@@ -353,6 +376,7 @@
             this.btnVoltar.TabIndex = 24;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // lblFiltro
             // 
@@ -382,29 +406,6 @@
             this.lblContador.Size = new System.Drawing.Size(51, 20);
             this.lblContador.TabIndex = 27;
             this.lblContador.Text = "label1";
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // sobrenomeDataGridViewTextBoxColumn
-            // 
-            this.sobrenomeDataGridViewTextBoxColumn.DataPropertyName = "Sobrenome";
-            this.sobrenomeDataGridViewTextBoxColumn.HeaderText = "Sobrenome";
-            this.sobrenomeDataGridViewTextBoxColumn.Name = "sobrenomeDataGridViewTextBoxColumn";
-            this.sobrenomeDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataSource = typeof(AirSystem_Project.Models.Usuario);
             // 
             // frmListaUsuarios
             // 
@@ -442,8 +443,8 @@
             this.Text = "frmListaUsuarios";
             this.Load += new System.EventHandler(this.frmListaUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

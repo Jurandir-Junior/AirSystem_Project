@@ -94,6 +94,7 @@
             // 
             // cbIdioma
             // 
+            this.cbIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIdioma.FormattingEnabled = true;
             this.cbIdioma.Items.AddRange(new object[] {
@@ -103,7 +104,7 @@
             this.cbIdioma.Name = "cbIdioma";
             this.cbIdioma.Size = new System.Drawing.Size(168, 24);
             this.cbIdioma.TabIndex = 6;
-            this.cbIdioma.Text = "Selecione o Idioma";
+            this.cbIdioma.DropDownClosed += new System.EventHandler(this.cbIdioma_DropDownClosed);
             // 
             // btnEnter
             // 
@@ -187,8 +188,9 @@
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.MaximizeBox = false;
             this.Name = "frmLogin";
-            this.Text = "Login";
+            this.Text = "Login - AirSystem";
             ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

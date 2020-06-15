@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace AirSystem_Project
 {
@@ -32,6 +33,19 @@ namespace AirSystem_Project
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
+            if (frmLogin.idioma == 1)
+            {
+                label1.Text = "Name";
+                label2.Text = "Adress";
+                label3.Text = "Username";
+                label4.Text = "Password";
+                label5.Text = "Confirm Password";
+                label6.Text = "Date of Birth";
+                btnAlterar.Text = "Change";
+                button3.Text = "Delete";
+                btnCadastrar.Text = "Register";
+                Text = "New User - AirSystem";
+            }
             if (usuario != null)
             {
                 tbxNome.Text = usuario.Nome;
@@ -73,16 +87,24 @@ namespace AirSystem_Project
                         Nascimento = dtpNascimento.Value,
                         Numero = Convert.ToInt32(tbxNumero.Text),
                         Username = tbxUsuario.Text,
-                        Senha = tbxSenha.Text
-                        
+                        Senha = tbxSenha.Text,
+                        Admin = cbAdmin.Checked
                     };
                    
                     repository.adicionar(usuario);
 
-                    MessageBox.Show("Dados Salvos.",
-                                    "Aviso", MessageBoxButtons.OK,
+                    if (frmLogin.idioma == 1)
+                    {
+                        MessageBox.Show("Data saved",
+                                    "Success", MessageBoxButtons.OK,
                                      MessageBoxIcon.Information);
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dados Salvos.",
+                                        "Sucesso", MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -103,16 +125,42 @@ namespace AirSystem_Project
 
             }
             else
-            {   //Texto , Título, Botões, Ícone
-                MessageBox.Show("Todos os campos são obrigatórios.",
+            {   
+                if(frmLogin.idioma == 1)
+                {
+                    MessageBox.Show("All fields are required",
                                 "Aviso", MessageBoxButtons.OK,
                                  MessageBoxIcon.Information);
+                } else
+                {
+                    MessageBox.Show("Todos os campos são obrigatórios.",
+                                "Aviso", MessageBoxButtons.OK,
+                                 MessageBoxIcon.Information);
+                }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             fotoPictureBox.Image = null;
+        }
+
+        private void Inputs_Enter(object sender, EventArgs e)
+        {
+            TextBox tbx = sender as TextBox;
+            if (tbx != null)
+            {
+                tbx.BackColor = Color.LightYellow;
+            }
+        }
+
+        private void Inputs_Leave(object sender, EventArgs e)
+        {
+            TextBox tbx = sender as TextBox;
+            if (tbx != null)
+            {
+                tbx.BackColor = Color.White;
+            }
         }
     }
 }

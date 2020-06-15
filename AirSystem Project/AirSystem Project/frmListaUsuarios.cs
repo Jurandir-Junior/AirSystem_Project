@@ -25,6 +25,27 @@ namespace AirSystem_Project
 
         private void frmListaUsuarios_Load(object sender, EventArgs e)
         {
+            if (frmLogin.idioma == 1)
+            {
+                dgvListaUsuarios.Columns[0].HeaderText = "Code";
+                dgvListaUsuarios.Columns[1].HeaderText = "Name";
+                dgvListaUsuarios.Columns[2].HeaderText = "Surname";
+                lblNome.Text = "Name";
+                lblSobrenome.Text = "Surname";
+                lblEndereco.Text = "Adress";
+                lblNumero.Text = "Number";
+                lblNascimento.Text = "Date of Birth";
+                lblUsuario.Text = "Username";
+                lblSenha.Text = "Password";
+                lblSenhaConfirm.Text = "Confirm Password";
+                btnAlterar.Text = "Change";
+                btnDeletar.Text = "Delete";
+                lblFiltro.Text = "Name";
+                btnVoltar.Text = "Back";
+                btnNovo.Text = "New";
+                btnEditar.Text = "Edit";
+                btnExcluir.Text = "Delete";
+            }
             carregaLista();
         }
         private void carregaLista()
@@ -49,6 +70,10 @@ namespace AirSystem_Project
 
         private void alterarContador()
         {
+            if (frmLogin.idioma == 1)
+            {
+                lblContador.Text = $"{dgvListaUsuarios.RowCount} items from {repository.buscarTodos().Count}";
+            }
             lblContador.Text = $"{dgvListaUsuarios.RowCount} itens de {repository.buscarTodos().Count}";
         }
 
@@ -107,7 +132,9 @@ namespace AirSystem_Project
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-             DialogResult dr = MessageBox.Show("Deseja excluir este usuário?", "Atenção"
+            if (frmLogin.idioma == 1)
+            {
+                DialogResult dr = MessageBox.Show("Deleting user, are you sure?", "Warning"
                     , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
@@ -118,6 +145,20 @@ namespace AirSystem_Project
                     carregaLista();
                 }
             }
+            else
+            {
+                DialogResult dr = MessageBox.Show("Deseja excluir este usuário?", "Atenção"
+                       , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    int codigo = Convert.ToInt32(usuario.Codigo.ToString());
+
+                    repository.deletar(codigo);
+
+                    carregaLista();
+                }
+            }
+        }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -132,6 +173,11 @@ namespace AirSystem_Project
         private void btnDeletar_Click(object sender, EventArgs e)
         {
                 fotoPictureBox.Image = null;
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

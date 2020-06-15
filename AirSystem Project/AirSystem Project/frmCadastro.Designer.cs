@@ -67,7 +67,8 @@
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(134, 23);
             this.tbxNome.TabIndex = 1;
-            this.tbxNome.Text = "Digite seu nome...";
+            this.tbxNome.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxNome.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // tbxEndereco
             // 
@@ -76,7 +77,8 @@
             this.tbxEndereco.Name = "tbxEndereco";
             this.tbxEndereco.Size = new System.Drawing.Size(219, 23);
             this.tbxEndereco.TabIndex = 3;
-            this.tbxEndereco.Text = "Digite seu endereço...";
+            this.tbxEndereco.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxEndereco.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // label2
             // 
@@ -95,7 +97,8 @@
             this.tbxUsuario.Name = "tbxUsuario";
             this.tbxUsuario.Size = new System.Drawing.Size(193, 23);
             this.tbxUsuario.TabIndex = 5;
-            this.tbxUsuario.Text = "Digite seu usuário...";
+            this.tbxUsuario.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxUsuario.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // label3
             // 
@@ -114,7 +117,8 @@
             this.tbxSenha.Name = "tbxSenha";
             this.tbxSenha.Size = new System.Drawing.Size(193, 23);
             this.tbxSenha.TabIndex = 7;
-            this.tbxSenha.UseSystemPasswordChar = true;
+            this.tbxSenha.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxSenha.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // label4
             // 
@@ -133,7 +137,8 @@
             this.tbxSenhaConfirm.Name = "tbxSenhaConfirm";
             this.tbxSenhaConfirm.Size = new System.Drawing.Size(193, 23);
             this.tbxSenhaConfirm.TabIndex = 9;
-            this.tbxSenhaConfirm.UseSystemPasswordChar = true;
+            this.tbxSenhaConfirm.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxSenhaConfirm.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // label5
             // 
@@ -152,7 +157,8 @@
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(68, 23);
             this.tbxNumero.TabIndex = 10;
-            this.tbxNumero.Text = "Nº";
+            this.tbxNumero.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxNumero.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // tbxSobrenome
             // 
@@ -161,7 +167,8 @@
             this.tbxSobrenome.Name = "tbxSobrenome";
             this.tbxSobrenome.Size = new System.Drawing.Size(153, 23);
             this.tbxSobrenome.TabIndex = 11;
-            this.tbxSobrenome.Text = "Digite seu sobrenome...";
+            this.tbxSobrenome.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.tbxSobrenome.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // label6
             // 
@@ -181,6 +188,8 @@
             this.dtpNascimento.Name = "dtpNascimento";
             this.dtpNascimento.Size = new System.Drawing.Size(105, 23);
             this.dtpNascimento.TabIndex = 13;
+            this.dtpNascimento.Enter += new System.EventHandler(this.Inputs_Enter);
+            this.dtpNascimento.Leave += new System.EventHandler(this.Inputs_Leave);
             // 
             // fotoPictureBox
             // 

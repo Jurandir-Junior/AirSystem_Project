@@ -20,32 +20,7 @@ namespace AirSystem_Project.Repositories
             {
                 usuarios = new List<Usuario>();
 
-                usuarios.Add(new Usuario
-                {
-                    Codigo = 1,
-                    Nome = "Junior",
-                    Sobrenome = "Santos",
-                    Endereco = "Rua Morais Madureira",
-                    Nascimento = Convert.ToDateTime("26/01/1999"),
-                    Numero = 288,
-                    Username = "TwitchyTail",
-                    Senha = "6j-NF7b!{S",
-                    Admin = true
-                });
-                contador++;
-                usuarios.Add(new Usuario
-                {
-                    Codigo = 2,
-                    Nome = "Nathan",
-                    Sobrenome = "Matos",
-                    Endereco = "Rua Servidão Almeida",
-                    Nascimento = Convert.ToDateTime("05/10/2000"),
-                    Numero = 206,
-                    Username = "Gearsy",
-                    Senha = "Zenitpolar741256",
-                    Admin = false
-                });
-                contador++;
+                
             }
         }
 
@@ -74,6 +49,19 @@ namespace AirSystem_Project.Repositories
 
             usuarios.Remove(usuario);
 
+        }
+
+        public Usuario BuscarUsuario(string user, string senha)
+        {
+            if (user != null && senha != null)
+            {
+            Usuario usuario = usuarios.Find(x => x.Username == user && x.Senha == senha);
+            return usuario;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

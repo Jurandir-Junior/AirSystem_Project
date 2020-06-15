@@ -92,7 +92,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmPrincipal";
-            this.Text = "frmPrincipal";
+            this.Text = "Principal - AirSystem";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.ResumeLayout(false);
 
         }
